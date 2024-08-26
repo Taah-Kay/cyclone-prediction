@@ -16,7 +16,7 @@ This CNN model, featuring multiple convolutional layers and max-pooling operatio
 
 ## Google Collab Code
 
-``Google drive link:`` [Link](https://drive.google.com/file/d/1dm3Q_mTmZrdhOI6y-fOWfFCJU3n2jOKx/view?usp=sharing).
+``Google drive link:`` [Link](https://colab.research.google.com/drive/1adqSwfmiCwUa5VtTxqF7GRsLk7bjSaNT?usp=sharing).
 
 
 ## Screenshots
