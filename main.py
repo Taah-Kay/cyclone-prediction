@@ -5,7 +5,8 @@ import numpy as np
 from PIL import Image
 
 # Path to the model file
-model_path = os.path.join(os.getcwd(), "Trained_model.keras")
+#model_path = os.path.join(os.getcwd(), "Trained_model.keras")
+model_path = "Trained_model.keras"
 
 # Load the trained model
 if os.path.exists(model_path):
