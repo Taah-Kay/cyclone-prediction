@@ -32,7 +32,7 @@ if file is not None:
     img_array = np.array(image)
     img = tf.image.resize(img_array, size=(256, 256))
     img = tf.expand_dims(img, axis=0)
-    img = img / 255.0
+    img.shape = (1, 256, 256, 3)
 
     if st.button('Compute Intensity'):
         intensity = predict_intensity(model, img)
