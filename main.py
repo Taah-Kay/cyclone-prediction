@@ -3,6 +3,7 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
+import cv2
 
 # Path to the model file
 #model_path = os.path.join(os.getcwd(), "Trained_model.keras")
@@ -26,16 +27,29 @@ st.markdown('''<p style="font-family:sans-serif; color:white; font-size: 20px;">
 file = st.file_uploader("Image", type=["png", "jpg", "jpeg"])
 
 if file is not None:
-    image = Image.open(file)
+    """image = Image.open(file)
     st.image(image, caption="Your uploaded image", use_column_width=True)
 
     img_array = np.array(image)
     img = tf.image.resize(img_array, size=(256, 256))
     img = tf.expand_dims(img, axis=0)
-    img.shape = (1, 256, 256, 3)
+    img.shape = (1, 256, 256, 3)"""
+
+    file_bytes = np.asarray (bytearray(plant_image.read()), dtype = np.uint8)
+    opencv_image = cv2.imdecode(file_bytes, 1)
+        
+        # Displaying the image
+    st.image(opencv_image, channels="BGR")
+    st.write(opencv_image.shape)
+        
+        # Resizing the image
+    opencv_image = cv2.resize(opencv_image, (256, 256))
+        
+        # Convert image to 4 Dimension
+    opencv_image.shape = (1, 256, 256, 3)
 
     if st.button('Compute Intensity'):
-        intensity = predict_intensity(model, img)
+        intensity = predict_intensity(model, opencv_image)
         st.markdown("The intensity of your image in KNOTS is 👇")
         st.success(f"{intensity[0][0]} KNOTS")
 
