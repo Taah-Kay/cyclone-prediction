@@ -27,14 +27,7 @@ st.markdown('''<p style="font-family:sans-serif; color:white; font-size: 20px;">
 file = st.file_uploader("Image", type=["png", "jpg", "jpeg"])
 
 if file is not None:
-    """image = Image.open(file)
-    st.image(image, caption="Your uploaded image", use_column_width=True)
-
-    img_array = np.array(image)
-    img = tf.image.resize(img_array, size=(256, 256))
-    img = tf.expand_dims(img, axis=0)
-    img.shape = (1, 256, 256, 3)"""
-
+    
     file_bytes = np.asarray (bytearray(file.read()), dtype = np.uint8)
     opencv_image = cv2.imdecode(file_bytes, 1)
         
