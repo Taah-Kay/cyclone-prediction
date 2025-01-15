@@ -35,7 +35,7 @@ if file is not None:
     img = tf.expand_dims(img, axis=0)
     img.shape = (1, 256, 256, 3)"""
 
-    file_bytes = np.asarray (bytearray(plant_image.read()), dtype = np.uint8)
+    file_bytes = np.asarray (bytearray(file.read()), dtype = np.uint8)
     opencv_image = cv2.imdecode(file_bytes, 1)
         
         # Displaying the image
